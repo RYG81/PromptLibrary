@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ══════════════════════════════════════════════════════════════
+   PROMPT LIBRARY — design tokens
+   Two independently authored themes. Light is a cool paper studio,
+   dark is a graphite darkroom. Accent pair: vermilion + teal.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+
+  --pf-canvas: #f2f2f5;
+  --pf-canvas-2: #e9e9ee;
+  --pf-surface: #ffffff;
+  --pf-surface-2: #f6f6f9;
+  --pf-elevated: #ffffff;
+  --pf-line: #d8d8e0;
+  --pf-line-2: #bfbfc9;
+  --pf-line-3: #ececf1;
+
+  --pf-ink: #131319;
+  --pf-ink-2: #45454f;
+  --pf-ink-3: #6c6c79;
+
+  /* #cf4319 keeps ≥4.6:1 on white whether used as text or as a button fill */
+  --pf-accent: #cf4319;
+  --pf-accent-hover: #b93a15;
+  --pf-accent-ink: #fff8f5;
+  --pf-accent-text: #cf4319;
+  --pf-accent-soft: rgba(207, 67, 25, 0.09);
+  --pf-accent-line: rgba(207, 67, 25, 0.34);
+
+  --pf-teal: #0d7a80;
+  --pf-teal-soft: rgba(13, 122, 128, 0.1);
+  --pf-teal-line: rgba(13, 122, 128, 0.32);
+
+  --pf-ok: #157f4b;
+  --pf-warn: #a05a00;
+  --pf-danger: #c22d2d;
+
+  --pf-mark-bg: rgba(207, 67, 25, 0.18);
+  --pf-mark-ink: #7d2c10;
+
+  --pf-shadow-soft: 0 1px 1px rgba(19, 19, 25, 0.05), 0 1px 3px rgba(19, 19, 25, 0.07);
+  --pf-shadow-card: 0 1px 1px rgba(19, 19, 25, 0.04), 0 4px 14px -8px rgba(19, 19, 25, 0.18);
+  --pf-shadow-pop: 0 1px 3px rgba(19, 19, 25, 0.08), 0 24px 56px -22px rgba(19, 19, 25, 0.34);
+  --pf-ring: rgba(217, 72, 31, 0.4);
+
+  --pf-dot: rgba(19, 19, 25, 0.055);
+  --pf-glow-a: rgba(217, 72, 31, 0.07);
+  --pf-glow-b: rgba(13, 122, 128, 0.06);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --pf-canvas: #0c0d10;
+  --pf-canvas-2: #111318;
+  --pf-surface: #15171c;
+  --pf-surface-2: #1b1e24;
+  --pf-elevated: #171a1f;
+  --pf-line: #262a32;
+  --pf-line-2: #3a3f4a;
+  --pf-line-3: #1e2128;
+
+  --pf-ink: #f0f2f6;
+  --pf-ink-2: #a9b0bc;
+  --pf-ink-3: #7d8592;
+
+  --pf-accent: #ff7043;
+  --pf-accent-hover: #ff8560;
+  --pf-accent-ink: #1a0d07;
+  --pf-accent-text: #ff9068;
+  --pf-accent-soft: rgba(255, 112, 67, 0.13);
+  --pf-accent-line: rgba(255, 112, 67, 0.4);
+
+  --pf-teal: #4cc9d4;
+  --pf-teal-soft: rgba(76, 201, 212, 0.12);
+  --pf-teal-line: rgba(76, 201, 212, 0.36);
+
+  --pf-ok: #4ade80;
+  --pf-warn: #fbbf24;
+  --pf-danger: #f87171;
+
+  --pf-mark-bg: rgba(255, 112, 67, 0.26);
+  --pf-mark-ink: #ffe3d6;
+
+  --pf-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --pf-shadow-card: 0 1px 1px rgba(0, 0, 0, 0.5), 0 8px 22px -12px rgba(0, 0, 0, 0.85);
+  --pf-shadow-pop: 0 2px 6px rgba(0, 0, 0, 0.6), 0 30px 64px -24px rgba(0, 0, 0, 0.95);
+  --pf-ring: rgba(255, 112, 67, 0.5);
+
+  --pf-dot: rgba(255, 255, 255, 0.045);
+  --pf-glow-a: rgba(255, 112, 67, 0.09);
+  --pf-glow-b: rgba(76, 201, 212, 0.07);
+}
+
+/* ══════════════ bridge to tailwind ══════════════ */
+
+@theme inline {
+  --color-canvas: var(--pf-canvas);
+  --color-canvas-2: var(--pf-canvas-2);
+  --color-surface: var(--pf-surface);
+  --color-surface-2: var(--pf-surface-2);
+  --color-elevated: var(--pf-elevated);
+  --color-line: var(--pf-line);
+  --color-line-2: var(--pf-line-2);
+  --color-line-3: var(--pf-line-3);
+  --color-ink: var(--pf-ink);
+  --color-ink-2: var(--pf-ink-2);
+  --color-ink-3: var(--pf-ink-3);
+  --color-accent: var(--pf-accent);
+  --color-accent-soft: var(--pf-accent-soft);
+  --color-accent-line: var(--pf-accent-line);
+  --color-accent-ink: var(--pf-accent-ink);
+  --color-accent-text: var(--pf-accent-text);
+  --color-teal: var(--pf-teal);
+  --color-teal-soft: var(--pf-teal-soft);
+  --color-teal-line: var(--pf-teal-line);
+  --color-ok: var(--pf-ok);
+  --color-warn: var(--pf-warn);
+  --color-danger: var(--pf-danger);
+
+  --shadow-soft: var(--pf-shadow-soft);
+  --shadow-card: var(--pf-shadow-card);
+  --shadow-pop: var(--pf-shadow-pop);
+
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* ══════════════ base ══════════════ */
+
+body {
+  background-color: var(--pf-canvas);
+  color: var(--pf-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv05", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.28s ease, color 0.28s ease;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  letter-spacing: -0.022em;
+}
+
+code, kbd, pre, .mono { font-family: var(--font-mono); }
+
+::selection { background: var(--pf-accent-soft); color: var(--pf-ink); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--pf-line-2) transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--pf-line-2); border-radius: 999px;
+  border: 2px solid transparent; background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--pf-ink-3); background-clip: content-box; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+select, option { background-color: var(--pf-elevated); color: var(--pf-ink); }
+
+mark { background: var(--pf-mark-bg); color: var(--pf-mark-ink); border-radius: 2px; padding: 0 1px; }
+
+/* ══════════════ ambient backdrop: dot field + horizon glow ══════════════ */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(var(--pf-dot) 1px, transparent 1px),
+    radial-gradient(70rem 40rem at 82% -8%, var(--pf-glow-a), transparent 60%),
+    radial-gradient(60rem 36rem at 8% 104%, var(--pf-glow-b), transparent 60%);
+  background-size: 22px 22px, 100% 100%, 100% 100%;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.95), rgba(0,0,0,.35) 55%, rgba(0,0,0,.7));
+}
+
+.hairglow {
+  position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 45; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--pf-accent) 22%, var(--pf-teal) 58%, transparent);
+  opacity: 0.5;
+}
+
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ══════════════ motion ══════════════ */
+
+@keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes pop { from { opacity: 0; transform: translateY(6px) scale(.99) } to { opacity: 1; transform: none } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-14px) } to { opacity: 1; transform: none } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(9px) } to { opacity: 1; transform: none } }
+@keyframes tick { from { opacity: .35; transform: translateY(-3px) } to { opacity: 1; transform: none } }
+@keyframes sweep { from { transform: translateX(-100%) } to { transform: translateX(320%) } }
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 var(--pf-accent-line) }
+  70% { box-shadow: 0 0 0 7px transparent }
+  100% { box-shadow: 0 0 0 0 transparent }
+}
+
+.rise { animation: riseIn .32s cubic-bezier(.22,1,.36,1) both; }
+.tick { animation: tick .2s ease-out both; }
+.ring-pulse { animation: pulseRing .7s ease-out; }
+
+.sweep::after {
+  content: ""; position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  width: 30%; animation: sweep 1.1s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
